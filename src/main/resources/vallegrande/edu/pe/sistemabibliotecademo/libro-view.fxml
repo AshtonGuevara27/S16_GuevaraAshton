@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="vallegrande.edu.pe.sistemabibliotecademo.controller.LibroController">
+
+    <!-- ENCABEZADO -->
+    <top>
+        <VBox alignment="CENTER" style="-fx-background-color: #1e3a8a; -fx-padding: 15;">
+            <Label text="SISTEMA DE GESTIÓN DE BIBLIOTECA" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="20.0"/>
+                </font>
+            </Label>
+        </VBox>
+    </top>
+
+    <!-- FORMULARIO IZQUIERDO -->
+    <left>
+        <VBox spacing="10.0" prefWidth="310.0" style="-fx-background-color: #f8fafc; -fx-border-color: #cbd5e1; -fx-border-width: 0 1 0 0;">
+            <padding>
+                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+            </padding>
+
+            <Label text="Datos del Libro" style="-fx-font-weight: bold; -fx-font-size: 15px;"/>
+
+            <TextField fx:id="txtId" promptText="ID (Automático)" editable="false" style="-fx-background-color: #e2e8f0;"/>
+            <TextField fx:id="txtTitulo" promptText="Título del libro"/>
+            <TextField fx:id="txtAutor" promptText="Autor"/>
+            <TextField fx:id="txtEditorial" promptText="Editorial"/>
+            <TextField fx:id="txtCategoria" promptText="Categoría (Ej: Novela, Ciencia)"/>
+            <TextField fx:id="txtAnio" promptText="Año de publicación (Ej: 2020)"/>
+            <TextField fx:id="txtCantidad" promptText="Cantidad disponible"/>
+            <ComboBox fx:id="cbEstado" promptText="Seleccione Estado" maxWidth="Infinity"/>
+
+            <Separator/>
+
+            <HBox spacing="8.0" alignment="CENTER">
+                <Button text="Registrar" onAction="#registrarLibro" prefWidth="90.0"
+                        style="-fx-background-color: #16a34a; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Actualizar" onAction="#actualizarLibro" prefWidth="90.0"
+                        style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Eliminar" onAction="#eliminarLibro" prefWidth="90.0"
+                        style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <Button text="Limpiar Campos" onAction="#limpiarCampos" maxWidth="Infinity"
+                    style="-fx-background-color: #64748b; -fx-text-fill: white;"/>
+        </VBox>
+    </left>
+
+    <!-- TABLA DERECHA -->
+    <center>
+        <VBox spacing="10.0">
+            <padding>
+                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+            </padding>
+
+            <Label text="Listado de Libros Registrados" style="-fx-font-weight: bold; -fx-font-size: 15px;"/>
+
+            <TableView fx:id="tablaLibros" VBox.vgrow="ALWAYS" onMouseClicked="#seleccionarLibro">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="45.0"/>
+                    <TableColumn fx:id="colTitulo" text="Título" prefWidth="140.0"/>
+                    <TableColumn fx:id="colAutor" text="Autor" prefWidth="115.0"/>
+                    <TableColumn fx:id="colEditorial" text="Editorial" prefWidth="95.0"/>
+                    <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="85.0"/>
+                    <TableColumn fx:id="colAnio" text="Año" prefWidth="55.0"/>
+                    <TableColumn fx:id="colCantidad" text="Cant." prefWidth="50.0"/>
+                    <TableColumn fx:id="colEstado" text="Estado" prefWidth="85.0"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>
